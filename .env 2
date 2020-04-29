@@ -1,6 +1,0 @@
-PORT=5006
-PGHOST='rds-postgresql-10mintutorial.cjwnht3a9cat.us-east-1.rds.amazonaws.com'
-PGDATABASE='myDatabase'
-PGUSER='masterUsername'
-PGPASSWORD='Tehrani123'
-PGPORT=5432
