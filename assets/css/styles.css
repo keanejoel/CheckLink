@@ -1,0 +1,112 @@
+.open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+.border-box {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.no-overflow {
+  overflow: hidden;
+}
+.kill-select-styles {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+.kill-select-styles::-ms-expand {
+  display: none;
+}
+.cl-table {
+  display: table;
+  width: 100%;
+}
+.cell {
+  vertical-align: middle;
+  display: table-cell;
+}
+#app,
+#__nuxt {
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+}
+#app .cl-table,
+#__nuxt .cl-table {
+  height: 100vh;
+  display: table;
+  width: 100%;
+}
+#app .cell,
+#__nuxt .cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+#app h2,
+#__nuxt h2 {
+  margin-bottom: 2em;
+  font-family: 'Open Sans', sans-serif;
+}
+#app p,
+#__nuxt p,
+#app a,
+#__nuxt a {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+}
+#app ::-webkit-input-placeholder,
+#__nuxt ::-webkit-input-placeholder {
+  color: #808080;
+}
+#app :-moz-placeholder,
+#__nuxt :-moz-placeholder {
+  color: #808080;
+  opacity: 1;
+}
+#app ::-moz-placeholder,
+#__nuxt ::-moz-placeholder {
+  color: #808080;
+  opacity: 1;
+}
+#app :-ms-input-placeholder,
+#__nuxt :-ms-input-placeholder {
+  color: #808080;
+}
+#app input:focus,
+#__nuxt input:focus {
+  outline: none;
+}
+button,
+.nuxt-link {
+  background-color: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #464040;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  margin-left: 15px;
+  border: 1px solid #464040;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-top: 2em;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+button:hover,
+.nuxt-link:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #464040;
+}

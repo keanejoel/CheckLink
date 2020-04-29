@@ -1,0 +1,86 @@
+// COLORS
+@white: #fff;
+@silver1: #c0c0c0;
+@gray1: #808080;
+@gray2: #404040;
+@gray3: #d3d3d3;
+@black: #000;
+
+@darkblue: #72BCD4;
+@blue: #86C5DA;
+@lightblue: #99CFE0;
+
+@blue2: #007FFF;
+
+// Fonts
+.open-sans { font-family: 'Open Sans', sans-serif; }
+
+// Specialty CSS
+.opacity (@opacity) {-moz-opacity: @opacity; -webkit-opacity: @opacity; -ms-opacity: @opacity; -o-opacity: @opacity; opacity: @opacity;}
+.smooth (@rule: all, @speed: 0.4s) {-webkit-transition: @rule @speed ease; -moz-transition: @rule @speed ease; -o-transition: @rule @speed ease; -ms-transition: @rule @speed ease; transition: @rule @speed ease;}
+.border-radius (@radius) {-moz-border-radius: @radius; -webkit-border-radius: @radius; -ms-border-radius: @radius; -o-border-radius: @radius; border-radius: @radius;}
+.background-size (@size) {background-size: @size; -webkit-background-size: @size; -moz-background-size: @size; -o-background-size: @size;}
+.border-box {box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;}
+.placeholder-color (@pcolor) {::-webkit-input-placeholder{color: @pcolor;}:-moz-placeholder{color: @pcolor; opacity: 1;}::-moz-placeholder{color: @pcolor; opacity: 1;}:-ms-input-placeholder{color: @pcolor;}}
+.placeholder-color2 (@pcolor) {&::-webkit-input-placeholder{color: @pcolor;}&:-moz-placeholder{color: @pcolor; opacity: 1;}&::-moz-placeholder{color: @pcolor; opacity: 1;}&:-ms-input-placeholder{color: @pcolor;}}
+.no-overflow {overflow: hidden;}
+.kill-select-styles {-webkit-appearance: none; -moz-appearance: none; appearance: none; border-radius: 0; &::-ms-expand { display: none; } }
+
+// Reusables
+.cl-table {
+  display: table;
+  width: 100%;
+}
+.cell {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+#app, #__nuxt {
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  .cl-table {
+    height: 100vh;
+    display: table;
+    width: 100%;
+  }
+  .cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  h2 {
+    margin-bottom: 2em;
+    .open-sans;
+  }
+  p, a {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    .open-sans;
+  }
+  .placeholder-color(@gray1);
+  input:focus { outline: none; }
+}
+
+button, .nuxt-link {
+  background-color: @white;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #464040;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  margin-left: 15px;
+  border: 1px solid #464040;
+  .border-radius(10px);
+  font-weight: 600;
+  margin-top: 2em;
+  .smooth;
+  &:hover {
+    text-decoration: none;
+    color: @white;
+    background-color: #464040;
+  }
+}
