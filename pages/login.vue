@@ -1,13 +1,113 @@
 <template>
-  
+  <div>
+    <div class="login-wrapper">
+      <p class="register">Don't have an account? Register <nuxt-link to="/register" >here</nuxt-link></p>
+      <!-- <p class="error" v-if="error">{{ error }}</p> -->
+      <div class="container">
+        <div class="row">
+          <div class="cl-table">
+            <div class="cell">
+              <div class="col-md-12">
+                <img src="/cl-logo.svg" alt="CheckLink" />
+              </div>
+              <div class="col-md-12">
+                <div class="create-user" style="margin-top: 2em;">
+                    <h2>Login</h2>
+                    <form action="">
+                      <input type="text" v-model="email" placeholder="Email" autocomplete="off" /><br>
+                      <input type="password" v-model="password" placeholder="Password" autocomplete="new-password" /><br>
+                      <nuxt-link v-on:click.native="createUser()" to="/confirmation" class="nuxt-link">Register</nuxt-link>
+                    </form>
+                    <!-- <p v-if="errors.length">
+                    <span class="invalid" v-for="error in errors" v-bind:key="error">{{ error }}</span>
+                    </p> -->
+                    <a class="forgot" href="#">Forgot Password?</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
-export default {
 
-}
+  import UserService from '../api/UserService';
+
+  export default {
+    name: 'Login',
+    data() {
+      return {
+        email: '',
+        password: '',
+        first: ''
+      }
+    },
+    // if token already exists, kick the user to their dashboard 
+    // created() {
+    //     if ( window.localStorage.getItem('token') ) {
+    //       this.$router.push('dashboard');
+    //     }
+    // },
+    // methods: {
+    //   async checkThePass() {
+    //     let response = await UserService.checkPass(this.email, this.password);
+    //     if (response.token) {
+    //       window.localStorage.setItem('token', response.token);
+    //       window.localStorage.setItem('email', this.email);
+    //       this.$router.push('dashboard');
+    //     }
+    //     this.errors = [];
+    //     if (!response.token) {
+    //       this.errors.push('Invalid Email or Password.');
+    //     }
+    //   }
+    // },
+  }
 </script>
 
-<style>
-
+<style scoped>
+.nuxt-link {
+  display: inline-block;
+  margin-top: 2em;
+}
+img {
+  width: 175px;
+}
+input {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2em;
+    margin-top: 1em;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid #000;
+}
+a.forgot {
+  font-weight: 600;
+  color: #464040;
+}
+p.register {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-size: 13px;
+}
+span.invalid {
+  color: red;
+}
+.register-link {
+  color: #007FFF;
+}
+button {
+  margin-bottom: 2em;
+  margin-left: 0 !important;
+}
 </style>

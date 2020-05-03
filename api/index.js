@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   client.connect()
     // when connection is made the following code will run ...
     .then(() => {
-      console.log('connected to database');
+      //console.log('connected to database');
       return client.query(query);
     })
     .then((results) => {
