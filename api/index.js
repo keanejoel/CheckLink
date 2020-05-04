@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     })
     .catch((err) => {
       console.log('error', err);
-      res.send('Something went wrong...');
+      res.send('Something went wrong with the server...');
     });
 });
 
