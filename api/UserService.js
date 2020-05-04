@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://afternoon-garden-16323.herokuapp.com/api/users';
+const url = 'https://immense-river-44670.herokuapp.com/api/users';
 
 class UserService {
 
