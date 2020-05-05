@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://polar-citadel-82425.herokuapp.com/api/users';
+const url = 'http://localhost:3000/api/users/';
 
 class UserService {
 
@@ -18,6 +18,15 @@ class UserService {
         reject(err);
       }
     });
+  }
+
+  // Create User
+  static insertUser(id, email, password) {
+      return axios.post(url, {
+        id,
+        email,
+        password
+      });
   }
 }
 

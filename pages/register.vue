@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="register-wrapper">
-      <p class="login">Already have an account? Login <nuxt-link to="/login" >here</nuxt-link></p>
-      <p class="error" v-if="error">{{ error }}</p>
+      <div class="login">Already have an account? Login <nuxt-link to="/login" >here</nuxt-link></div>
       <div class="container">
         <div class="row">
           <div class="cl-table">
@@ -16,7 +15,7 @@
                     <form action="">
                       <input type="text" v-model="email" placeholder="Email" autocomplete="off" /><br>
                       <input type="password" v-model="password" placeholder="Password" autocomplete="new-password" /><br>
-                      <nuxt-link v-on:click.native="createUser()" to="/confirmation" class="nuxt-link">Register</nuxt-link>
+                      <nuxt-link @click.native="createUser" to="/confirmation" class="nuxt-link">Register</nuxt-link>
                     </form>
                   </div>
               </div>
@@ -50,8 +49,7 @@
         users: [],
         id: '',
         email: '',
-        password: '',
-        error: null
+        password: ''
       }
     },
     async created() {
@@ -61,11 +59,15 @@
         this.error = err.message;
       }
     },
-    // methods: {
-    //   async createUser() {
-    //     await UserService.insertUser(this.id, this.email, this.password, this.first, this.last, this.username);
-    //   }
-    // }
+    methods: {
+      async createUser() {
+        try {
+          await UserService.insertUser(this.id, this.email, this.password);
+        } catch(err) {
+          this.error = err.message;
+        }
+      }
+    }
   }
 </script>
 
@@ -90,7 +92,7 @@ input {
     border-top: none !important;
     border-bottom: 1px solid #000;
 }
-p.login {
+.login {
   position: absolute;
   right: 30px;
   top: 30px;
