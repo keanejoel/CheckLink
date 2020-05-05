@@ -49,7 +49,7 @@ app.post('/', (req, res) => {
     .then(() => {
       // do query stuff
       const sql = 'INSERT INTO users (id, email, password) VALUES ($1, $2, $3)'
-      const params = [req.body.id, req.body.email, hash;
+      const params = [req.body.id, req.body.email, hash]
       return client.query(sql, params);
     })
     .then(() => {
