@@ -3,12 +3,16 @@ const { Client } = require('pg');
 const { uuid } = require('uuidv4');
 const bcrypt = require('bcrypt');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 var app = express();
 
 app.get('/', (req, res) => {
-  const client = new Client();
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
+  
   const query = {
     text: `SELECT * FROM users`
   }

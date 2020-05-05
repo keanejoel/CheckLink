@@ -49,7 +49,8 @@
         users: [],
         id: '',
         email: '',
-        password: ''
+        password: '',
+        joined: ''
       }
     },
     async created() {
@@ -62,7 +63,7 @@
     methods: {
       async createUser() {
         try {
-          await UserService.insertUser(this.id, this.email, this.password);
+          await UserService.insertUser(this.id, this.email, this.password, this.joined);
         } catch(err) {
           this.error = err.message;
         }
