@@ -36,8 +36,8 @@ app.post('/', (req, res) => {
   client.connect()
     .then(() => {
       // do query stuff
-      const sql = 'INSERT INTO users (id, email, password) VALUES ($1, $2, $3)'
-      const params = [uuid(), req.body.email, hash];
+      const sql = 'INSERT INTO users (id, email, password, joined) VALUES ($1, $2, $3, $4)'
+      const params = [uuid(), req.body.email, hash, req.body.joined];
       return client.query(sql, params);
     })
     .then(() => {

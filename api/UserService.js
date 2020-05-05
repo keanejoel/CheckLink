@@ -21,11 +21,12 @@ class UserService {
   }
 
   // Create User
-  static insertUser(id, email, password) {
+  static insertUser(id, email, password, joined) {
       return axios.post(url, {
         id,
         email,
-        password
+        password,
+        joined
       });
   }
 }
