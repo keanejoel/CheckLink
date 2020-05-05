@@ -11,6 +11,7 @@ var app = express();
 
 app.get('/', (req, res) => {
   var client = new Client({
+    connectionString: process.env.DATABASE_URL,
     ssl: true
   });
   //const client = new Client();
