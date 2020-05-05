@@ -1,6 +1,6 @@
 const express = require('express');
 const { Client } = require('pg');
-const { uuid } = require('uuidv4');
+//const { uuid } = require('uuidv4');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
@@ -42,7 +42,7 @@ app.post('/', (req, res) => {
     .then(() => {
       // do query stuff
       const sql = 'INSERT INTO users (id, email, password) VALUES ($1, $2, $3)'
-      const params = [uuid(), req.body.email, hash];
+      const params = [req.body.id, req.body.email, hash];
       return client.query(sql, params);
     })
     .then(() => {
