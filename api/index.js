@@ -3,13 +3,20 @@ const { Client } = require('pg');
 const { uuid } = require('uuidv4');
 const bcrypt = require('bcrypt');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 
 var app = express();
 
 app.get('/', (req, res) => {
-  const client = new Client();
+  var client = new Client({
+    user: "mnvqsxotealksp",
+    password: "8ba6ec5f2b0981d21fc71815a0507a6e9e862b482c5bcd75acc044d2c31b7f59",
+    database: "darhff6h8nfr23",
+    port: 5432,
+    host: "ec2-18-233-32-61.compute-1.amazonaws.com",
+    ssl: true
+  });
   const query = {
     text: `SELECT * FROM users`
   }
