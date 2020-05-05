@@ -2,21 +2,18 @@ const express = require('express');
 const { Client } = require('pg');
 const { uuid } = require('uuidv4');
 const bcrypt = require('bcrypt');
+require('dotenv').config();
 
-// require('dotenv').config();
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 
 var app = express();
 
 app.get('/', (req, res) => {
   var client = new Client({
-    user: "mnvqsxotealksp",
-    password: "8ba6ec5f2b0981d21fc71815a0507a6e9e862b482c5bcd75acc044d2c31b7f59",
-    database: "darhff6h8nfr23",
-    port: 5432,
-    host: "ec2-18-233-32-61.compute-1.amazonaws.com",
     ssl: true
   });
+  //const client = new Client();
   const query = {
     text: `SELECT * FROM users`
   }
@@ -44,8 +41,8 @@ app.post('/', (req, res) => {
   client.connect()
     .then(() => {
       // do query stuff
-      const sql = 'INSERT INTO users (id, email, password, joined) VALUES ($1, $2, $3, $4)'
-      const params = [uuid(), req.body.email, hash, req.body.joined];
+      const sql = 'INSERT INTO users (id, email, password) VALUES ($1, $2, $3)'
+      const params = [uuid(), req.body.email, hash];
       return client.query(sql, params);
     })
     .then(() => {
