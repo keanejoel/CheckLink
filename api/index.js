@@ -1,7 +1,7 @@
 const express = require('express');
 const { Client } = require('pg');
 //const { uuid } = require('uuidv4');
-//const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
@@ -35,15 +35,18 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  const client = new Client();
-  //const saltRounds = 8;
+  var client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  });
+  const saltRounds = 8;
 
-  //const hash = bcrypt.hashSync(req.body.password, saltRounds)
+  const hash = bcrypt.hashSync(req.body.password, saltRounds)
   client.connect()
     .then(() => {
       // do query stuff
       const sql = 'INSERT INTO users (id, email, password) VALUES ($1, $2, $3)'
-      const params = [req.body.id, req.body.email, req.body.password];
+      const params = [req.body.id, req.body.email, hash];
       return client.query(sql, params);
     })
     .then(() => {
