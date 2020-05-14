@@ -92,6 +92,7 @@ input {
 a.forgot {
   font-weight: 600;
   color: #464040;
+  display: inline-block;
 }
 p.register {
   position: absolute;
@@ -105,7 +106,7 @@ span.invalid {
 .register-link {
   color: #007FFF;
 }
-button {
+button, .nuxt-link {
   margin-bottom: 2em;
   margin-left: 0 !important;
 }

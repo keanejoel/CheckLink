@@ -13,11 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  var client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
-  });
-  //const client = new Client();
+  const client = new Client();
   const query = {
     text: `SELECT * FROM users`
   }
@@ -38,10 +34,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  var client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
-  });
   const saltRounds = 8;
 
   const hash = bcrypt.hashSync(req.body.password, saltRounds)
