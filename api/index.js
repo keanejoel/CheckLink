@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  const client = new Client();
+  const client = new Client({
+    ssl: 'true'
+  });
   const query = {
     text: `SELECT * FROM users`
   }
