@@ -17,7 +17,9 @@ module.exports = {
     ]
   },
   serverMiddleware: [
-      '~/api/index'
+      '~/api/index',
+      '~/api/login',
+      '~/api/session'
   ],
   /*
   ** Customize the progress-bar color

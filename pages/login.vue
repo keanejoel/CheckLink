@@ -15,11 +15,8 @@
                     <form action="">
                       <input type="text" v-model="email" placeholder="Email" autocomplete="off" /><br>
                       <input type="password" v-model="password" placeholder="Password" autocomplete="new-password" /><br>
-                      <nuxt-link v-on:click.native="createUser()" to="/confirmation" class="nuxt-link">Register</nuxt-link>
+                      <nuxt-link @click.native="checkThePass()" to="/dashboard" class="nuxt-link">Login</nuxt-link>
                     </form>
-                    <!-- <p v-if="errors.length">
-                    <span class="invalid" v-for="error in errors" v-bind:key="error">{{ error }}</span>
-                    </p> -->
                     <a class="forgot" href="#">Forgot Password?</a>
                   </div>
               </div>
@@ -41,30 +38,30 @@
     data() {
       return {
         email: '',
-        password: '',
-        first: ''
+        password: ''
       }
     },
-    // if token already exists, kick the user to their dashboard 
-    // created() {
-    //     if ( window.localStorage.getItem('token') ) {
-    //       this.$router.push('dashboard');
-    //     }
-    // },
-    // methods: {
-    //   async checkThePass() {
-    //     let response = await UserService.checkPass(this.email, this.password);
-    //     if (response.token) {
-    //       window.localStorage.setItem('token', response.token);
-    //       window.localStorage.setItem('email', this.email);
-    //       this.$router.push('dashboard');
-    //     }
-    //     this.errors = [];
-    //     if (!response.token) {
-    //       this.errors.push('Invalid Email or Password.');
-    //     }
-    //   }
-    // },
+    //if token already exists, kick the user to their dashboard 
+    mounted() {
+        if ( window.localStorage.getItem('token') ) {
+          this.$router.push('dashboard');
+        }
+    },
+    methods: {
+      async checkThePass() {
+        let response = await UserService.checkPass(this.email, this.password);
+        if (response.token) {
+          console.log('we have a match');
+          window.localStorage.setItem('token', response.token);
+          window.localStorage.setItem('email', this.email);
+          this.$router.push('dashboard');
+        }
+        this.errors = [];
+        if (!response.token) {
+          this.errors.push('Invalid Email or Password.');
+        }
+      }
+    },
   }
 </script>
 

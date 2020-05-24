@@ -15,7 +15,7 @@
                     <form action="">
                       <input type="text" v-model="email" placeholder="Email" autocomplete="off" /><br>
                       <input type="password" v-model="password" placeholder="Password" autocomplete="new-password" /><br>
-                      <nuxt-link @click.native="createUser" to="/confirmation" class="nuxt-link">Register</nuxt-link>
+                      <nuxt-link @click.native="createUser()" to="/" class="nuxt-link">Register</nuxt-link>
                     </form>
                   </div>
               </div>
@@ -49,8 +49,7 @@
         users: [],
         id: '',
         email: '',
-        password: '',
-        joined: ''
+        password: ''
       }
     },
     async created() {
@@ -63,7 +62,7 @@
     methods: {
       async createUser() {
         try {
-          await UserService.insertUser(this.id, this.email, this.password, this.joined);
+          await UserService.insertUser(this.id, this.email, this.password);
         } catch(err) {
           this.error = err.message;
         }

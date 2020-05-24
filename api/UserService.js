@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const url = 'https://polar-citadel-82425.herokuapp.com/api/users';
+const url = 'http://localhost:3000/api/users/';
+
+const loginURL = 'http://localhost:3000/api/login/';
 
 class UserService {
 
@@ -28,6 +30,48 @@ class UserService {
         password
       });
   }
+
+  // Login the User
+  static checkPass(email, password) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const res = await axios.post(loginURL, { email, password } );
+        const data = res.data;
+        resolve(
+          data
+        )
+      } catch(err) {
+        reject(err);
+      }
+    });
+  }
+
+  // User session info
+  static userSession(email) {
+    return new Promise( async (resolve, reject) => {
+      try {
+        const response = await axios.get(session, {email});
+        const theData = response.data;
+        resolve(theData);
+      } catch(err) {
+        reject(err);
+      }
+    });
+  }
+
+  // Create User
+  static insertUser(id, email, password, first, last, username) {
+      return axios.post(url, {
+        id,
+        email,
+        password,
+        first,
+        last,
+        username
+      });
+  }
+
+
 }
 
 export default UserService;
