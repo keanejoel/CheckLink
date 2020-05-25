@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    ssl: true
   });
   const query = {
     text: `SELECT * FROM users`

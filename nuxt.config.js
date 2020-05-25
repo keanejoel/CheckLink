@@ -46,7 +46,7 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   /*
   ** Axios module configuration
@@ -69,6 +69,7 @@ module.exports = {
     PGDATABASE: 'myDatabase',
     PGUSER: 'masterUsername',
     PGPASSWORD: 'Tehrani123',
-    PGPORT: 5432
+    PGPORT: 5432,
+    DATABASE_URL: process.env.DATABASE_URL || 'postgres://masterUsername:Tehrani123@rds-postgresql-10mintutorial.cjwnht3a9cat.us-east-1.rds.amazonaws.com:5432/myDatabase'
   }
 }
