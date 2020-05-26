@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://polar-citadel-82425.herokuapp.com/api/users';
+const url = 'http://localhost:3000/api/users';
 
 const loginURL = 'http://localhost:3000/api/login';
 
