@@ -1,6 +1,7 @@
 const express = require('express')
 const consola = require('consola')
-const cors = require('cors');
+const cors = require('cors')
+const https = require('https')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 

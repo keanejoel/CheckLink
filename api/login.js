@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
     const client = new Client({
-      connectionString: process.env.DATABASE_URL,
-      ssl: true,
+        connectionString: process.env.DATABASE_URL || 'postgres://masterUsername:Tehrani123@rds-postgresql-10mintutorial.cjwnht3a9cat.us-east-1.rds.amazonaws.com:5432/myDatabase',
+        ssl: process.env.DATABASE_URL ? true : false
     });
     const email = req.body.email;
     const query =  `SELECT * FROM users WHERE email = '` + email + `'`;

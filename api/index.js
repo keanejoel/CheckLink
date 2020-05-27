@@ -18,10 +18,8 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
   const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    }
+    connectionString: process.env.DATABASE_URL || 'postgres://masterUsername:Tehrani123@rds-postgresql-10mintutorial.cjwnht3a9cat.us-east-1.rds.amazonaws.com:5432/myDatabase',
+    ssl: process.env.DATABASE_URL ? true : false
   });
   const query = {
     text: `SELECT * FROM users`
@@ -44,8 +42,8 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    connectionString: process.env.DATABASE_URL || 'postgres://masterUsername:Tehrani123@rds-postgresql-10mintutorial.cjwnht3a9cat.us-east-1.rds.amazonaws.com:5432/myDatabase',
+    ssl: process.env.DATABASE_URL ? true : false
   });
   const saltRounds = 8;
   const hash = bcrypt.hashSync(req.body.password, saltRounds);

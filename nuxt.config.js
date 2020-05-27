@@ -1,4 +1,6 @@
 
+const fs = require('fs');
+const path = require('path');
 module.exports = {
   mode: 'universal',
   /*
@@ -70,6 +72,6 @@ module.exports = {
     PGUSER: 'masterUsername',
     PGPASSWORD: 'Tehrani123',
     PGPORT: 5432,
-    DATABASE_URL: process.env.DATABASE_URL || 'postgres://masterUsername:Tehrani123@rds-postgresql-10mintutorial.cjwnht3a9cat.us-east-1.rds.amazonaws.com:5432/myDatabase'
+    DATABASE_URL: process.env.DATABASE_URL || 'postgres://masterUsername:Tehrani123:SslMode=none@rds-postgresql-10mintutorial.cjwnht3a9cat.us-east-1.rds.amazonaws.com:5432/myDatabase'
   }
 }
