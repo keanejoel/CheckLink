@@ -26,6 +26,8 @@
     "jsonwebtoken": "^8.5.1",
     "nuxt": "^2.12.2",
     "pg": "^8.2.1",
+    "tiptap": "^1.27.1",
+    "tiptap-extensions": "^1.29.1",
     "uuidv4": "^6.0.8"
   },
   "devDependencies": {

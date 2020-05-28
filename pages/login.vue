@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="login-wrapper">
-      <p class="register">Don't have an account? Register <nuxt-link to="/register" >here</nuxt-link></p>
+      <p class="register">Don't have an account? Register <nuxt-link to="/sign-up" >here</nuxt-link></p>
       <div class="container">
         <div class="row">
           <div class="cl-table">
